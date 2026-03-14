@@ -1,0 +1,591 @@
+{
+  "symptoms": [
+    {"name": "headache", "description": "Pain or pressure in the head", "body_region": "Head", "severity_weight": 1.0},
+    {"name": "migraine aura", "description": "Visual disturbances preceding headache", "body_region": "Head", "severity_weight": 1.3},
+    {"name": "dizziness", "description": "Feeling lightheaded or unsteady", "body_region": "Head", "severity_weight": 1.1},
+    {"name": "blurred vision", "description": "Difficulty focusing or seeing clearly", "body_region": "Eyes", "severity_weight": 1.2},
+    {"name": "eye pain", "description": "Pain in or around the eyes", "body_region": "Eyes", "severity_weight": 1.1},
+    {"name": "ear pain", "description": "Pain in the ear canal or middle ear", "body_region": "Ears", "severity_weight": 1.0},
+    {"name": "hearing loss", "description": "Partial or complete inability to hear", "body_region": "Ears", "severity_weight": 1.4},
+    {"name": "sore throat", "description": "Pain or irritation in the throat", "body_region": "Nose/Throat", "severity_weight": 1.0},
+    {"name": "nasal congestion", "description": "Blocked or stuffy nose", "body_region": "Nose/Throat", "severity_weight": 0.8},
+    {"name": "runny nose", "description": "Excessive nasal discharge", "body_region": "Nose/Throat", "severity_weight": 0.7},
+    {"name": "sneezing", "description": "Involuntary expulsion of air from nose", "body_region": "Nose/Throat", "severity_weight": 0.6},
+    {"name": "cough", "description": "Repetitive expulsion of air from lungs", "body_region": "Chest", "severity_weight": 1.0},
+    {"name": "chest pain", "description": "Pain or discomfort in the chest area", "body_region": "Chest", "severity_weight": 1.8},
+    {"name": "shortness of breath", "description": "Difficulty breathing or feeling breathless", "body_region": "Chest", "severity_weight": 1.7},
+    {"name": "wheezing", "description": "High-pitched whistling sound during breathing", "body_region": "Chest", "severity_weight": 1.3},
+    {"name": "heart palpitations", "description": "Awareness of rapid or irregular heartbeat", "body_region": "Chest", "severity_weight": 1.5},
+    {"name": "abdominal pain", "description": "Pain in the stomach or belly area", "body_region": "Abdomen", "severity_weight": 1.2},
+    {"name": "nausea", "description": "Feeling of sickness with urge to vomit", "body_region": "Abdomen", "severity_weight": 0.9},
+    {"name": "vomiting", "description": "Forceful expulsion of stomach contents", "body_region": "Abdomen", "severity_weight": 1.1},
+    {"name": "diarrhea", "description": "Frequent loose or watery bowel movements", "body_region": "Abdomen", "severity_weight": 1.0},
+    {"name": "constipation", "description": "Infrequent or difficult bowel movements", "body_region": "Abdomen", "severity_weight": 0.7},
+    {"name": "bloating", "description": "Feeling of fullness or swelling in the abdomen", "body_region": "Abdomen", "severity_weight": 0.6},
+    {"name": "back pain", "description": "Pain in the upper or lower back", "body_region": "Back", "severity_weight": 1.0},
+    {"name": "muscle aches", "description": "Diffuse pain in muscles throughout the body", "body_region": "General", "severity_weight": 0.9},
+    {"name": "joint pain", "description": "Pain or stiffness in one or more joints", "body_region": "General", "severity_weight": 1.1},
+    {"name": "joint swelling", "description": "Visible swelling around a joint", "body_region": "General", "severity_weight": 1.3},
+    {"name": "numbness", "description": "Loss of sensation in a body part", "body_region": "General", "severity_weight": 1.2},
+    {"name": "tingling", "description": "Pins-and-needles sensation", "body_region": "General", "severity_weight": 1.0},
+    {"name": "fever", "description": "Elevated body temperature above 38C / 100.4F", "body_region": "General", "severity_weight": 1.2},
+    {"name": "chills", "description": "Feeling of coldness often with shivering", "body_region": "General", "severity_weight": 1.0},
+    {"name": "fatigue", "description": "Extreme tiredness or lack of energy", "body_region": "General", "severity_weight": 0.8},
+    {"name": "night sweats", "description": "Excessive sweating during sleep", "body_region": "General", "severity_weight": 1.1},
+    {"name": "weight loss", "description": "Unintentional loss of body weight", "body_region": "General", "severity_weight": 1.3},
+    {"name": "weight gain", "description": "Unintentional increase in body weight", "body_region": "General", "severity_weight": 0.9},
+    {"name": "loss of appetite", "description": "Reduced desire to eat", "body_region": "General", "severity_weight": 0.8},
+    {"name": "skin rash", "description": "Change in skin color, texture or appearance", "body_region": "Skin", "severity_weight": 1.0},
+    {"name": "itching", "description": "Uncomfortable sensation causing desire to scratch", "body_region": "Skin", "severity_weight": 0.8},
+    {"name": "hives", "description": "Raised, itchy welts on the skin", "body_region": "Skin", "severity_weight": 1.1},
+    {"name": "swollen lymph nodes", "description": "Enlarged lymph nodes in neck, armpit or groin", "body_region": "General", "severity_weight": 1.2},
+    {"name": "difficulty swallowing", "description": "Trouble or pain when swallowing", "body_region": "Nose/Throat", "severity_weight": 1.3},
+    {"name": "frequent urination", "description": "Needing to urinate more often than usual", "body_region": "Abdomen", "severity_weight": 0.9},
+    {"name": "painful urination", "description": "Burning or pain during urination", "body_region": "Abdomen", "severity_weight": 1.2},
+    {"name": "anxiety", "description": "Persistent feelings of worry or nervousness", "body_region": "General", "severity_weight": 0.9},
+    {"name": "insomnia", "description": "Difficulty falling or staying asleep", "body_region": "General", "severity_weight": 0.8},
+    {"name": "confusion", "description": "Difficulty thinking clearly or concentrating", "body_region": "Head", "severity_weight": 1.4}
+  ],
+  "conditions": [
+    {
+      "name": "Common Cold",
+      "description": "A viral infection of the upper respiratory tract causing mild symptoms that typically resolve within 7-10 days.",
+      "category": "Respiratory",
+      "symptoms": ["headache", "fever", "cough", "sore throat", "fatigue", "nasal congestion", "runny nose", "sneezing"],
+      "symptom_weights": {"cough": 1.5, "sore throat": 1.3, "nasal congestion": 1.5, "runny nose": 1.4, "sneezing": 1.3, "fever": 0.8, "headache": 0.7, "fatigue": 0.6},
+      "prevalence": 0.9,
+      "risk_factors": ["Weakened immune system", "Cold weather exposure", "Close contact with infected individuals", "Lack of sleep"],
+      "when_to_seek_care": "If symptoms last more than 10 days, fever exceeds 103F (39.4C), or symptoms worsen after initial improvement."
+    },
+    {
+      "name": "Influenza (Flu)",
+      "description": "A contagious respiratory illness caused by influenza viruses, often more severe than a cold with sudden onset.",
+      "category": "Respiratory",
+      "symptoms": ["fever", "cough", "fatigue", "headache", "muscle aches", "chills", "sore throat", "nasal congestion"],
+      "symptom_weights": {"fever": 2.0, "muscle aches": 1.8, "fatigue": 1.5, "chills": 1.4, "cough": 1.2, "headache": 1.0, "sore throat": 0.8, "nasal congestion": 0.6},
+      "prevalence": 0.7,
+      "risk_factors": ["Age over 65", "Chronic conditions", "Pregnancy", "Weakened immune system"],
+      "when_to_seek_care": "If you have difficulty breathing, persistent chest pain, confusion, or severe vomiting."
+    },
+    {
+      "name": "Migraine",
+      "description": "A neurological condition causing intense, throbbing headache usually on one side, often accompanied by nausea and sensitivity to light.",
+      "category": "Neurological",
+      "symptoms": ["headache", "nausea", "vomiting", "blurred vision", "dizziness", "fatigue", "migraine aura"],
+      "symptom_weights": {"headache": 2.5, "migraine aura": 2.0, "nausea": 1.5, "vomiting": 1.2, "blurred vision": 1.3, "dizziness": 1.0, "fatigue": 0.7},
+      "prevalence": 0.6,
+      "risk_factors": ["Family history", "Stress", "Hormonal changes", "Certain foods", "Sleep changes"],
+      "when_to_seek_care": "If headache is sudden and severe (thunderclap), accompanied by fever, stiff neck, confusion, or neurological symptoms."
+    },
+    {
+      "name": "Allergic Rhinitis",
+      "description": "Inflammation of the nasal passages caused by an allergic response to airborne substances like pollen or dust.",
+      "category": "Allergy/Immune",
+      "symptoms": ["nasal congestion", "runny nose", "sneezing", "itching", "eye pain", "headache", "fatigue"],
+      "symptom_weights": {"sneezing": 2.0, "nasal congestion": 1.8, "runny nose": 1.7, "itching": 1.5, "eye pain": 1.0, "headache": 0.6, "fatigue": 0.5},
+      "prevalence": 0.8,
+      "risk_factors": ["Family history of allergies", "Asthma", "Eczema", "Exposure to allergens"],
+      "when_to_seek_care": "If symptoms significantly affect quality of life, or over-the-counter medications are not effective."
+    },
+    {
+      "name": "Gastroenteritis",
+      "description": "Inflammation of the stomach and intestines, commonly called stomach flu, usually caused by viral or bacterial infection.",
+      "category": "Gastrointestinal",
+      "symptoms": ["nausea", "vomiting", "diarrhea", "abdominal pain", "fever", "fatigue", "loss of appetite", "muscle aches"],
+      "symptom_weights": {"diarrhea": 2.0, "vomiting": 1.8, "nausea": 1.5, "abdominal pain": 1.3, "fever": 1.0, "fatigue": 0.7, "loss of appetite": 0.6, "muscle aches": 0.5},
+      "prevalence": 0.75,
+      "risk_factors": ["Contaminated food or water", "Close contact with infected person", "Weakened immune system"],
+      "when_to_seek_care": "If you cannot keep fluids down for 24 hours, have bloody diarrhea, fever over 104F, or signs of dehydration."
+    },
+    {
+      "name": "Urinary Tract Infection",
+      "description": "An infection in any part of the urinary system, most commonly affecting the bladder and urethra.",
+      "category": "Urological",
+      "symptoms": ["painful urination", "frequent urination", "abdominal pain", "fever", "back pain", "nausea"],
+      "symptom_weights": {"painful urination": 2.5, "frequent urination": 2.0, "abdominal pain": 1.0, "fever": 1.2, "back pain": 1.0, "nausea": 0.6},
+      "prevalence": 0.65,
+      "risk_factors": ["Female sex", "Sexual activity", "Certain types of birth control", "Menopause", "Urinary tract abnormalities"],
+      "when_to_seek_care": "If you have fever, chills, back or side pain (possible kidney infection), blood in urine, or symptoms persist after treatment."
+    },
+    {
+      "name": "Asthma",
+      "description": "A chronic condition in which the airways narrow, swell, and produce extra mucus, making breathing difficult.",
+      "category": "Respiratory",
+      "symptoms": ["shortness of breath", "wheezing", "cough", "chest pain"],
+      "symptom_weights": {"shortness of breath": 2.0, "wheezing": 2.0, "cough": 1.5, "chest pain": 1.2},
+      "prevalence": 0.6,
+      "risk_factors": ["Family history", "Allergies", "Obesity", "Smoking", "Air pollution exposure"],
+      "when_to_seek_care": "If you have rapid worsening of shortness of breath, no improvement after using inhaler, or shortness of breath with minimal activity."
+    },
+    {
+      "name": "Hypertension",
+      "description": "Persistently elevated blood pressure that can damage blood vessels and organs over time. Often has no obvious symptoms.",
+      "category": "Cardiovascular",
+      "symptoms": ["headache", "dizziness", "blurred vision", "chest pain", "shortness of breath", "heart palpitations"],
+      "symptom_weights": {"headache": 1.0, "dizziness": 1.2, "blurred vision": 1.3, "chest pain": 1.5, "shortness of breath": 1.2, "heart palpitations": 1.0},
+      "prevalence": 0.7,
+      "risk_factors": ["Age", "Family history", "Obesity", "High sodium diet", "Sedentary lifestyle", "Stress"],
+      "when_to_seek_care": "If blood pressure readings consistently exceed 140/90, or you experience severe headache, chest pain, or vision changes."
+    },
+    {
+      "name": "Type 2 Diabetes",
+      "description": "A chronic metabolic condition where the body becomes resistant to insulin or does not produce enough, leading to high blood sugar.",
+      "category": "Endocrine",
+      "symptoms": ["frequent urination", "fatigue", "blurred vision", "weight loss", "numbness", "tingling"],
+      "symptom_weights": {"frequent urination": 1.8, "fatigue": 1.2, "blurred vision": 1.5, "weight loss": 1.5, "numbness": 1.3, "tingling": 1.2},
+      "prevalence": 0.55,
+      "risk_factors": ["Obesity", "Sedentary lifestyle", "Family history", "Age over 45", "History of gestational diabetes"],
+      "when_to_seek_care": "If you experience extreme thirst, very frequent urination, unexplained weight loss, or blurred vision."
+    },
+    {
+      "name": "Tension Headache",
+      "description": "The most common type of headache, typically causing a dull, aching pain on both sides of the head.",
+      "category": "Neurological",
+      "symptoms": ["headache", "fatigue", "muscle aches", "insomnia", "anxiety"],
+      "symptom_weights": {"headache": 2.5, "muscle aches": 1.0, "fatigue": 0.8, "insomnia": 0.7, "anxiety": 0.7},
+      "prevalence": 0.85,
+      "risk_factors": ["Stress", "Poor posture", "Eyestrain", "Dehydration", "Skipped meals"],
+      "when_to_seek_care": "If headaches are frequent (more than 15 days per month), increasingly severe, or accompanied by neurological symptoms."
+    },
+    {
+      "name": "Pneumonia",
+      "description": "An infection that inflames the air sacs in one or both lungs, which may fill with fluid or pus.",
+      "category": "Respiratory",
+      "symptoms": ["cough", "fever", "chills", "shortness of breath", "chest pain", "fatigue", "nausea", "confusion"],
+      "symptom_weights": {"cough": 2.0, "fever": 1.8, "shortness of breath": 1.8, "chest pain": 1.5, "chills": 1.3, "fatigue": 1.0, "nausea": 0.6, "confusion": 1.2},
+      "prevalence": 0.5,
+      "risk_factors": ["Age over 65 or under 2", "Chronic lung disease", "Smoking", "Weakened immune system", "Hospitalization"],
+      "when_to_seek_care": "If you have difficulty breathing, chest pain, persistent fever of 102F or higher, or cough with pus."
+    },
+    {
+      "name": "Gastroesophageal Reflux Disease (GERD)",
+      "description": "A chronic digestive disease where stomach acid frequently flows back into the esophagus, causing irritation.",
+      "category": "Gastrointestinal",
+      "symptoms": ["chest pain", "difficulty swallowing", "nausea", "cough", "sore throat"],
+      "symptom_weights": {"chest pain": 1.8, "difficulty swallowing": 1.5, "nausea": 1.2, "cough": 1.0, "sore throat": 0.8},
+      "prevalence": 0.65,
+      "risk_factors": ["Obesity", "Pregnancy", "Smoking", "Hiatal hernia", "Eating large meals late at night"],
+      "when_to_seek_care": "If you have severe or frequent heartburn, difficulty swallowing, persistent nausea, or unexplained weight loss."
+    },
+    {
+      "name": "Iron Deficiency Anemia",
+      "description": "A condition where the blood lacks adequate healthy red blood cells due to insufficient iron.",
+      "category": "Hematological",
+      "symptoms": ["fatigue", "dizziness", "shortness of breath", "heart palpitations", "headache", "numbness", "tingling"],
+      "symptom_weights": {"fatigue": 2.0, "dizziness": 1.5, "shortness of breath": 1.3, "heart palpitations": 1.2, "headache": 0.8, "numbness": 0.7, "tingling": 0.7},
+      "prevalence": 0.5,
+      "risk_factors": ["Heavy menstrual periods", "Vegetarian diet", "Frequent blood donation", "Pregnancy", "GI conditions"],
+      "when_to_seek_care": "If you have persistent fatigue, shortness of breath, dizziness, or pale skin."
+    },
+    {
+      "name": "Anxiety Disorder",
+      "description": "A mental health condition characterized by persistent, excessive worry and fear that interferes with daily activities.",
+      "category": "Mental Health",
+      "symptoms": ["anxiety", "heart palpitations", "insomnia", "fatigue", "muscle aches", "nausea", "dizziness", "shortness of breath"],
+      "symptom_weights": {"anxiety": 2.5, "heart palpitations": 1.5, "insomnia": 1.5, "fatigue": 1.0, "muscle aches": 0.8, "nausea": 0.7, "dizziness": 0.8, "shortness of breath": 0.7},
+      "prevalence": 0.65,
+      "risk_factors": ["Family history", "Trauma", "Stress", "Other mental health disorders", "Substance abuse"],
+      "when_to_seek_care": "If anxiety significantly interferes with work, relationships, or daily activities, or if you have thoughts of self-harm."
+    },
+    {
+      "name": "Sinusitis",
+      "description": "Inflammation or swelling of the tissue lining the sinuses, often caused by infection.",
+      "category": "Respiratory",
+      "symptoms": ["nasal congestion", "headache", "fever", "cough", "fatigue", "ear pain", "sore throat"],
+      "symptom_weights": {"nasal congestion": 2.0, "headache": 1.5, "fever": 1.0, "ear pain": 1.2, "cough": 0.8, "fatigue": 0.7, "sore throat": 0.5},
+      "prevalence": 0.7,
+      "risk_factors": ["Allergic rhinitis", "Nasal polyps", "Deviated septum", "Respiratory infections"],
+      "when_to_seek_care": "If symptoms last more than 10 days, fever over 102F, or symptoms worsen after initial improvement."
+    },
+    {
+      "name": "Rheumatoid Arthritis",
+      "description": "A chronic autoimmune disorder that primarily affects joints, causing painful swelling that can lead to joint deformity.",
+      "category": "Autoimmune",
+      "symptoms": ["joint pain", "joint swelling", "fatigue", "fever", "muscle aches", "numbness", "weight loss"],
+      "symptom_weights": {"joint pain": 2.5, "joint swelling": 2.5, "fatigue": 1.2, "fever": 0.8, "muscle aches": 1.0, "numbness": 0.7, "weight loss": 0.6},
+      "prevalence": 0.35,
+      "risk_factors": ["Female sex", "Age 40-60", "Family history", "Smoking", "Obesity"],
+      "when_to_seek_care": "If you have persistent joint swelling, morning stiffness lasting more than 30 minutes, or progressive joint deformity."
+    },
+    {
+      "name": "Hypothyroidism",
+      "description": "A condition in which the thyroid gland does not produce enough thyroid hormone, slowing the body's metabolism.",
+      "category": "Endocrine",
+      "symptoms": ["fatigue", "weight gain", "constipation", "muscle aches", "joint pain", "numbness", "tingling"],
+      "symptom_weights": {"fatigue": 2.0, "weight gain": 1.8, "constipation": 1.5, "muscle aches": 1.0, "joint pain": 0.8, "numbness": 0.7, "tingling": 0.6},
+      "prevalence": 0.45,
+      "risk_factors": ["Female sex", "Age over 60", "Family history", "Autoimmune disease", "Radiation treatment"],
+      "when_to_seek_care": "If you have persistent fatigue, unexplained weight gain, constipation, or puffy face."
+    },
+    {
+      "name": "Mononucleosis",
+      "description": "An infectious illness usually caused by Epstein-Barr virus, common in teenagers and young adults.",
+      "category": "Infectious",
+      "symptoms": ["fatigue", "fever", "sore throat", "swollen lymph nodes", "headache", "muscle aches", "skin rash"],
+      "symptom_weights": {"fatigue": 2.0, "fever": 1.5, "sore throat": 1.8, "swollen lymph nodes": 2.0, "headache": 0.8, "muscle aches": 0.7, "skin rash": 0.6},
+      "prevalence": 0.4,
+      "risk_factors": ["Age 15-25", "Close contact with infected person", "Sharing utensils"],
+      "when_to_seek_care": "If you develop severe abdominal pain (possible splenic enlargement), difficulty breathing, or symptoms lasting more than 2 weeks."
+    },
+    {
+      "name": "Contact Dermatitis",
+      "description": "A red, itchy rash caused by direct contact with a substance that irritates the skin or triggers an allergic reaction.",
+      "category": "Dermatological",
+      "symptoms": ["skin rash", "itching", "hives"],
+      "symptom_weights": {"skin rash": 2.5, "itching": 2.0, "hives": 1.5},
+      "prevalence": 0.6,
+      "risk_factors": ["Occupational exposure to irritants", "History of allergies", "Frequent hand washing"],
+      "when_to_seek_care": "If the rash is widespread, painful, infected, or affects the face or genitals."
+    },
+    {
+      "name": "Irritable Bowel Syndrome (IBS)",
+      "description": "A chronic gastrointestinal disorder causing abdominal pain and changes in bowel habits without structural abnormalities.",
+      "category": "Gastrointestinal",
+      "symptoms": ["abdominal pain", "bloating", "diarrhea", "constipation", "nausea", "fatigue"],
+      "symptom_weights": {"abdominal pain": 2.0, "bloating": 1.8, "diarrhea": 1.5, "constipation": 1.5, "nausea": 0.8, "fatigue": 0.6},
+      "prevalence": 0.55,
+      "risk_factors": ["Female sex", "Age under 50", "Family history", "Stress", "History of abuse"],
+      "when_to_seek_care": "If you have unexplained weight loss, rectal bleeding, persistent vomiting, or difficulty swallowing."
+    },
+    {
+      "name": "Strep Throat",
+      "description": "A bacterial infection of the throat and tonsils caused by Group A Streptococcus.",
+      "category": "Infectious",
+      "symptoms": ["sore throat", "fever", "headache", "swollen lymph nodes", "difficulty swallowing", "nausea", "skin rash"],
+      "symptom_weights": {"sore throat": 2.5, "fever": 1.8, "swollen lymph nodes": 1.5, "difficulty swallowing": 1.5, "headache": 0.8, "nausea": 0.5, "skin rash": 0.7},
+      "prevalence": 0.5,
+      "risk_factors": ["Age 5-15", "Close contact with infected person", "Season (winter/spring)"],
+      "when_to_seek_care": "If sore throat is severe, lasts more than 48 hours, is accompanied by rash, or difficulty breathing."
+    },
+    {
+      "name": "Chronic Fatigue Syndrome",
+      "description": "A complex disorder characterized by extreme fatigue that cannot be explained by an underlying medical condition.",
+      "category": "General",
+      "symptoms": ["fatigue", "muscle aches", "joint pain", "headache", "insomnia", "confusion", "sore throat"],
+      "symptom_weights": {"fatigue": 3.0, "muscle aches": 1.5, "joint pain": 1.2, "headache": 1.0, "insomnia": 1.2, "confusion": 1.0, "sore throat": 0.7},
+      "prevalence": 0.3,
+      "risk_factors": ["Female sex", "Age 40-60", "Stress", "Previous viral infections"],
+      "when_to_seek_care": "If fatigue is severe enough to impair daily activities, persists for more than 6 months, or is accompanied by unexplained symptoms."
+    }
+  ],
+  "drugs": [
+    {
+      "name": "Ibuprofen",
+      "generic_name": "Ibuprofen",
+      "drug_class": "NSAID",
+      "uses": ["Pain relief", "Fever reduction", "Anti-inflammatory"],
+      "side_effects": ["Stomach upset", "Nausea", "Dizziness", "Kidney problems with long-term use"],
+      "warnings": "Avoid in patients with kidney disease or active GI bleeding."
+    },
+    {
+      "name": "Aspirin",
+      "generic_name": "Acetylsalicylic acid",
+      "drug_class": "NSAID",
+      "uses": ["Pain relief", "Fever reduction", "Blood thinner", "Heart attack prevention"],
+      "side_effects": ["Stomach bleeding", "Tinnitus", "Bruising"],
+      "warnings": "Not recommended for children due to Reye syndrome risk."
+    },
+    {
+      "name": "Acetaminophen",
+      "generic_name": "Paracetamol",
+      "drug_class": "Analgesic",
+      "uses": ["Pain relief", "Fever reduction"],
+      "side_effects": ["Liver damage at high doses", "Allergic reactions (rare)"],
+      "warnings": "Do not exceed 4g per day. Avoid with alcohol."
+    },
+    {
+      "name": "Amoxicillin",
+      "generic_name": "Amoxicillin",
+      "drug_class": "Antibiotic (Penicillin)",
+      "uses": ["Bacterial infections", "Strep throat", "Ear infections", "UTI"],
+      "side_effects": ["Diarrhea", "Nausea", "Skin rash", "Allergic reactions"],
+      "warnings": "Contraindicated in patients with penicillin allergy."
+    },
+    {
+      "name": "Lisinopril",
+      "generic_name": "Lisinopril",
+      "drug_class": "ACE Inhibitor",
+      "uses": ["Hypertension", "Heart failure", "Kidney protection in diabetes"],
+      "side_effects": ["Dry cough", "Dizziness", "Headache", "Hyperkalemia"],
+      "warnings": "Contraindicated in pregnancy. Monitor potassium levels."
+    },
+    {
+      "name": "Metformin",
+      "generic_name": "Metformin",
+      "drug_class": "Biguanide",
+      "uses": ["Type 2 diabetes", "Blood sugar control", "Polycystic ovary syndrome"],
+      "side_effects": ["Nausea", "Diarrhea", "Stomach pain", "Lactic acidosis (rare)"],
+      "warnings": "Avoid in severe kidney or liver disease. Hold before contrast procedures."
+    },
+    {
+      "name": "Omeprazole",
+      "generic_name": "Omeprazole",
+      "drug_class": "Proton Pump Inhibitor",
+      "uses": ["GERD", "Stomach ulcers", "Acid reflux"],
+      "side_effects": ["Headache", "Nausea", "Diarrhea", "Vitamin B12 deficiency with long-term use"],
+      "warnings": "Long-term use may increase risk of bone fractures and C. difficile infection."
+    },
+    {
+      "name": "Warfarin",
+      "generic_name": "Warfarin",
+      "drug_class": "Anticoagulant",
+      "uses": ["Blood clot prevention", "Stroke prevention", "DVT treatment"],
+      "side_effects": ["Bleeding", "Bruising", "Hair loss"],
+      "warnings": "Requires regular INR monitoring. Many food and drug interactions."
+    },
+    {
+      "name": "Atorvastatin",
+      "generic_name": "Atorvastatin",
+      "drug_class": "Statin",
+      "uses": ["High cholesterol", "Cardiovascular disease prevention"],
+      "side_effects": ["Muscle pain", "Liver enzyme elevation", "Digestive problems"],
+      "warnings": "Report unexplained muscle pain immediately. Avoid grapefruit."
+    },
+    {
+      "name": "Amlodipine",
+      "generic_name": "Amlodipine",
+      "drug_class": "Calcium Channel Blocker",
+      "uses": ["Hypertension", "Angina"],
+      "side_effects": ["Swelling in ankles", "Dizziness", "Flushing", "Fatigue"],
+      "warnings": "Use with caution in patients with severe liver disease."
+    },
+    {
+      "name": "Metoprolol",
+      "generic_name": "Metoprolol",
+      "drug_class": "Beta Blocker",
+      "uses": ["Hypertension", "Heart failure", "Angina", "Arrhythmia"],
+      "side_effects": ["Fatigue", "Dizziness", "Cold hands/feet", "Bradycardia"],
+      "warnings": "Do not stop abruptly. May mask signs of hypoglycemia."
+    },
+    {
+      "name": "Sertraline",
+      "generic_name": "Sertraline",
+      "drug_class": "SSRI",
+      "uses": ["Depression", "Anxiety disorders", "PTSD", "OCD"],
+      "side_effects": ["Nausea", "Diarrhea", "Insomnia", "Sexual dysfunction"],
+      "warnings": "May increase suicidal thoughts in young adults. Avoid with MAOIs."
+    },
+    {
+      "name": "Alprazolam",
+      "generic_name": "Alprazolam",
+      "drug_class": "Benzodiazepine",
+      "uses": ["Anxiety disorders", "Panic disorder"],
+      "side_effects": ["Drowsiness", "Dizziness", "Memory impairment", "Dependence"],
+      "warnings": "High risk of dependence. Avoid alcohol. Do not stop abruptly."
+    },
+    {
+      "name": "Prednisone",
+      "generic_name": "Prednisone",
+      "drug_class": "Corticosteroid",
+      "uses": ["Inflammation", "Autoimmune conditions", "Allergic reactions", "Asthma"],
+      "side_effects": ["Weight gain", "Mood changes", "Increased blood sugar", "Bone loss"],
+      "warnings": "Taper gradually; do not stop abruptly. Long-term use has serious side effects."
+    },
+    {
+      "name": "Albuterol",
+      "generic_name": "Salbutamol",
+      "drug_class": "Beta-2 Agonist",
+      "uses": ["Asthma", "Bronchospasm", "COPD"],
+      "side_effects": ["Tremor", "Rapid heartbeat", "Headache", "Nervousness"],
+      "warnings": "Excessive use may indicate poorly controlled asthma."
+    },
+    {
+      "name": "Levothyroxine",
+      "generic_name": "Levothyroxine",
+      "drug_class": "Thyroid Hormone",
+      "uses": ["Hypothyroidism", "Thyroid hormone replacement"],
+      "side_effects": ["Weight loss", "Tremor", "Rapid heartbeat", "Insomnia"],
+      "warnings": "Take on empty stomach. Many drug interactions affect absorption."
+    },
+    {
+      "name": "Cetirizine",
+      "generic_name": "Cetirizine",
+      "drug_class": "Antihistamine",
+      "uses": ["Allergic rhinitis", "Hives", "Itching"],
+      "side_effects": ["Drowsiness", "Dry mouth", "Fatigue"],
+      "warnings": "May cause drowsiness. Use caution when driving."
+    },
+    {
+      "name": "Loratadine",
+      "generic_name": "Loratadine",
+      "drug_class": "Antihistamine",
+      "uses": ["Allergic rhinitis", "Hives"],
+      "side_effects": ["Headache", "Drowsiness (rare)", "Dry mouth"],
+      "warnings": "Non-drowsy but individual responses may vary."
+    },
+    {
+      "name": "Fluoxetine",
+      "generic_name": "Fluoxetine",
+      "drug_class": "SSRI",
+      "uses": ["Depression", "OCD", "Panic disorder", "Bulimia nervosa"],
+      "side_effects": ["Nausea", "Headache", "Insomnia", "Anxiety", "Sexual dysfunction"],
+      "warnings": "May increase suicidal thoughts in young adults. Long half-life."
+    },
+    {
+      "name": "Gabapentin",
+      "generic_name": "Gabapentin",
+      "drug_class": "Anticonvulsant",
+      "uses": ["Neuropathic pain", "Seizures", "Restless leg syndrome"],
+      "side_effects": ["Drowsiness", "Dizziness", "Weight gain", "Peripheral edema"],
+      "warnings": "Taper gradually when discontinuing. May enhance CNS depression."
+    },
+    {
+      "name": "Naproxen",
+      "generic_name": "Naproxen",
+      "drug_class": "NSAID",
+      "uses": ["Pain relief", "Fever reduction", "Anti-inflammatory", "Arthritis"],
+      "side_effects": ["Stomach upset", "Heartburn", "Drowsiness", "Headache"],
+      "warnings": "Avoid in patients with kidney disease. Increased cardiovascular risk with long-term use."
+    },
+    {
+      "name": "Ciprofloxacin",
+      "generic_name": "Ciprofloxacin",
+      "drug_class": "Fluoroquinolone",
+      "uses": ["Bacterial infections", "UTI", "Respiratory infections"],
+      "side_effects": ["Nausea", "Diarrhea", "Tendon damage", "Photosensitivity"],
+      "warnings": "Risk of tendon rupture. Avoid in children. May prolong QT interval."
+    }
+  ],
+  "interactions": [
+    {
+      "drug_a": "Ibuprofen",
+      "drug_b": "Warfarin",
+      "severity": "major",
+      "description": "NSAIDs increase anticoagulant effect and risk of gastrointestinal bleeding when combined with warfarin.",
+      "recommendation": "Avoid concurrent use. If necessary, monitor INR frequently and watch for signs of bleeding."
+    },
+    {
+      "drug_a": "Aspirin",
+      "drug_b": "Warfarin",
+      "severity": "major",
+      "description": "Aspirin significantly enhances anticoagulant effect of warfarin and increases bleeding risk.",
+      "recommendation": "Generally avoid combination unless specifically directed by physician for cardiac indication."
+    },
+    {
+      "drug_a": "Ibuprofen",
+      "drug_b": "Aspirin",
+      "severity": "moderate",
+      "description": "Concurrent NSAID use increases risk of GI bleeding. Ibuprofen may reduce cardioprotective effect of aspirin.",
+      "recommendation": "If aspirin is taken for cardiac protection, take it at least 30 minutes before ibuprofen."
+    },
+    {
+      "drug_a": "Ibuprofen",
+      "drug_b": "Lisinopril",
+      "severity": "moderate",
+      "description": "NSAIDs may reduce the antihypertensive effect of ACE inhibitors and increase risk of kidney damage.",
+      "recommendation": "Monitor blood pressure and kidney function. Use lowest effective NSAID dose for shortest duration."
+    },
+    {
+      "drug_a": "Sertraline",
+      "drug_b": "Warfarin",
+      "severity": "moderate",
+      "description": "SSRIs may increase anticoagulant effect of warfarin by inhibiting platelet aggregation.",
+      "recommendation": "Monitor INR closely when starting or stopping SSRI. Watch for signs of bleeding."
+    },
+    {
+      "drug_a": "Sertraline",
+      "drug_b": "Alprazolam",
+      "severity": "moderate",
+      "description": "Sertraline may increase levels of alprazolam, enhancing sedation and psychomotor impairment.",
+      "recommendation": "Consider reducing alprazolam dose. Monitor for excessive sedation."
+    },
+    {
+      "drug_a": "Metformin",
+      "drug_b": "Ciprofloxacin",
+      "severity": "moderate",
+      "description": "Ciprofloxacin may alter blood glucose levels in patients taking metformin, causing hypo- or hyperglycemia.",
+      "recommendation": "Monitor blood glucose closely during antibiotic course."
+    },
+    {
+      "drug_a": "Lisinopril",
+      "drug_b": "Metformin",
+      "severity": "minor",
+      "description": "ACE inhibitors may slightly enhance the blood-sugar-lowering effect of metformin.",
+      "recommendation": "Monitor blood glucose. Generally safe combination but be aware of potential hypoglycemia."
+    },
+    {
+      "drug_a": "Omeprazole",
+      "drug_b": "Levothyroxine",
+      "severity": "moderate",
+      "description": "Omeprazole may reduce absorption of levothyroxine by altering gastric pH.",
+      "recommendation": "Take levothyroxine at least 4 hours apart from omeprazole. Monitor thyroid levels."
+    },
+    {
+      "drug_a": "Atorvastatin",
+      "drug_b": "Warfarin",
+      "severity": "moderate",
+      "description": "Statins may slightly increase anticoagulant effect of warfarin.",
+      "recommendation": "Monitor INR when initiating or changing statin therapy."
+    },
+    {
+      "drug_a": "Alprazolam",
+      "drug_b": "Gabapentin",
+      "severity": "major",
+      "description": "Combined CNS depressant effects may cause severe sedation, respiratory depression, and death.",
+      "recommendation": "Avoid combination if possible. If necessary, use lowest doses and monitor closely."
+    },
+    {
+      "drug_a": "Prednisone",
+      "drug_b": "Ibuprofen",
+      "severity": "moderate",
+      "description": "Concurrent use of corticosteroids and NSAIDs significantly increases risk of GI ulceration and bleeding.",
+      "recommendation": "Add gastroprotective agent (e.g., omeprazole) if combination is necessary."
+    },
+    {
+      "drug_a": "Fluoxetine",
+      "drug_b": "Sertraline",
+      "severity": "contraindicated",
+      "description": "Concurrent use of two SSRIs increases risk of serotonin syndrome, a potentially life-threatening condition.",
+      "recommendation": "Do not use two SSRIs simultaneously. Allow adequate washout period when switching."
+    },
+    {
+      "drug_a": "Naproxen",
+      "drug_b": "Warfarin",
+      "severity": "major",
+      "description": "Naproxen increases risk of bleeding when combined with warfarin due to anti-platelet and GI effects.",
+      "recommendation": "Avoid concurrent use. Choose acetaminophen for pain relief if possible."
+    },
+    {
+      "drug_a": "Metoprolol",
+      "drug_b": "Amlodipine",
+      "severity": "moderate",
+      "description": "Combined use may cause excessive reduction in heart rate and blood pressure.",
+      "recommendation": "Monitor heart rate and blood pressure. Often used together therapeutically with proper monitoring."
+    },
+    {
+      "drug_a": "Ciprofloxacin",
+      "drug_b": "Warfarin",
+      "severity": "major",
+      "description": "Fluoroquinolones may significantly increase anticoagulant effect of warfarin.",
+      "recommendation": "Monitor INR closely. Consider alternative antibiotic or dose adjustment."
+    },
+    {
+      "drug_a": "Prednisone",
+      "drug_b": "Metformin",
+      "severity": "moderate",
+      "description": "Corticosteroids can raise blood glucose levels, opposing the effect of metformin.",
+      "recommendation": "Monitor blood glucose frequently. Metformin dose adjustment may be needed."
+    },
+    {
+      "drug_a": "Gabapentin",
+      "drug_b": "Naproxen",
+      "severity": "minor",
+      "description": "Naproxen may slightly increase gabapentin absorption and levels.",
+      "recommendation": "Generally safe. Monitor for increased gabapentin side effects."
+    },
+    {
+      "drug_a": "Cetirizine",
+      "drug_b": "Alprazolam",
+      "severity": "moderate",
+      "description": "Combined sedative effects may cause excessive drowsiness and impaired motor function.",
+      "recommendation": "Avoid driving or operating machinery. Consider non-sedating antihistamine alternative."
+    },
+    {
+      "drug_a": "Ibuprofen",
+      "drug_b": "Naproxen",
+      "severity": "major",
+      "description": "Taking two NSAIDs together greatly increases risk of GI bleeding, kidney damage, and cardiovascular events.",
+      "recommendation": "Do not use two NSAIDs simultaneously. Choose one at the lowest effective dose."
+    }
+  ]
+}
