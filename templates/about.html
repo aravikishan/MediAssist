@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<section class="page-header">
+    <h1>About MediAssist</h1>
+</section>
+
+<div class="about-content">
+    <div class="about-section">
+        <h2>What is MediAssist?</h2>
+        <p>MediAssist is an educational medical symptom checker and knowledge base.
+        It uses algorithmic differential diagnosis to help users understand potential
+        conditions based on their symptoms. It also provides a drug interaction checker
+        for learning about medication safety.</p>
+    </div>
+
+    <div class="about-section disclaimer-section">
+        <h2>Medical Disclaimer</h2>
+        <div class="alert alert-danger">
+            <p><strong>IMPORTANT:</strong> MediAssist is designed for <strong>educational and
+            informational purposes only</strong>. It is NOT a substitute for professional
+            medical advice, diagnosis, or treatment.</p>
+            <ul>
+                <li>Never disregard professional medical advice or delay seeking it because
+                of something you read on this application.</li>
+                <li>If you think you may have a medical emergency, call your doctor or
+                emergency services immediately.</li>
+                <li>The information provided by this tool should not be used for
+                self-diagnosis or self-treatment.</li>
+                <li>The symptom checker algorithm uses a simplified model and does not
+                account for medical history, physical examination findings, or
+                laboratory results.</li>
+                <li>Drug interaction information may not be complete. Always consult
+                your pharmacist or physician.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2>How It Works</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Symptom Checker</h3>
+                <p>Select symptoms from a categorized list organized by body region.
+                The differential diagnosis engine uses weighted overlap and Jaccard
+                similarity algorithms to rank possible conditions by confidence score.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Condition Browser</h3>
+                <p>Browse our knowledge base of medical conditions, including descriptions,
+                associated symptoms, risk factors, and guidance on when to seek care.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Drug Interactions</h3>
+                <p>Check for potential interactions between medications. Interactions are
+                classified by severity: minor, moderate, major, and contraindicated.</p>
+            </div>
+            <div class="feature-card">
+                <h3>REST API</h3>
+                <p>All features are available through a RESTful API, enabling integration
+                with other applications and automated testing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2>Technology Stack</h2>
+        <ul class="tech-list">
+            <li><strong>Backend:</strong> Python, Flask, SQLAlchemy</li>
+            <li><strong>Database:</strong> SQLite</li>
+            <li><strong>Diagnosis Engine:</strong> Weighted overlap + Jaccard similarity</li>
+            <li><strong>Testing:</strong> pytest with coverage</li>
+            <li><strong>Deployment:</strong> Docker, Gunicorn</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

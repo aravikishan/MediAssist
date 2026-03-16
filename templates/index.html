@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Symptom Checker{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Symptom Checker</h1>
+    <p class="subtitle">Select your symptoms below to receive a list of possible conditions.
+    You can browse by body region or search for specific symptoms.</p>
+</section>
+
+<form method="POST" action="/check" id="symptom-form">
+    <div class="checker-layout">
+        <div class="panel body-diagram-panel">
+            <h2>Body Region</h2>
+            <div class="body-diagram" id="body-diagram">
+                {% for region in symptom_regions %}
+                <button type="button" class="body-region-btn" data-region="{{ region }}">
+                    {{ region }}
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="panel symptom-picker-panel">
+            <h2>Select Symptoms</h2>
+            <input type="text" id="symptom-search" class="search-input"
+                   placeholder="Search symptoms...">
+            <div class="symptom-regions" id="symptom-list">
+                {% for region, symptoms in symptom_regions.items() %}
+                <div class="symptom-region-group" data-region="{{ region }}">
+                    <h3 class="region-heading">{{ region }}</h3>
+                    {% for symptom in symptoms %}
+                    <label class="symptom-item" data-name="{{ symptom.name|lower }}">
+                        <input type="checkbox" name="symptoms"
+                               value="{{ symptom.name }}"
+                               class="symptom-checkbox">
+                        <span class="symptom-name">{{ symptom.name }}</span>
+                        <select name="severity_{{ symptom.name }}"
+                                class="severity-select" disabled>
+                            <option value="mild">Mild</option>
+                            <option value="moderate" selected>Moderate</option>
+                            <option value="severe">Severe</option>
+                        </select>
+                    </label>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="panel selected-panel">
+            <h2>Selected Symptoms</h2>
+            <div id="selected-symptoms" class="selected-list">
+                <p class="empty-state">No symptoms selected yet.</p>
+            </div>
+            <div class="method-selector">
+                <label>Scoring Method:</label>
+                <select name="method" class="method-select">
+                    <option value="combined" selected>Combined (recommended)</option>
+                    <option value="weighted">Weighted Overlap</option>
+                    <option value="jaccard">Jaccard Similarity</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" id="check-btn" disabled>
+                Check Symptoms
+            </button>
+        </div>
+    </div>
+</form>
+{% endblock %}

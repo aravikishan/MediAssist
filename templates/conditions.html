@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Conditions{% endblock %}
+{% block content %}
+<section class="page-header">
+    <h1>Condition Browser</h1>
+    <p class="subtitle">Explore our knowledge base of medical conditions.</p>
+</section>
+
+<div class="filter-bar">
+    <label>Filter by category:</label>
+    <a href="/conditions" class="filter-btn {{ 'active' if not selected_category }}">All</a>
+    {% for cat in categories %}
+    <a href="/conditions?category={{ cat }}" class="filter-btn {{ 'active' if selected_category == cat }}">{{ cat }}</a>
+    {% endfor %}
+</div>
+
+<div class="conditions-grid">
+    {% for cond in conditions %}
+    <div class="condition-card">
+        <div class="card-header">
+            <h3>{{ cond.name }}</h3>
+            <span class="category-badge">{{ cond.category }}</span>
+        </div>
+        <p class="card-desc">{{ cond.description[:200] }}{{ '...' if cond.description|length > 200 }}</p>
+        <div class="card-symptoms">
+            <h4>Common Symptoms:</h4>
+            <div class="symptom-tags">
+                {% for s in cond.symptoms[:6] %}
+                <span class="tag">{{ s }}</span>
+                {% endfor %}
+                {% if cond.symptoms|length > 6 %}
+                <span class="tag tag-more">+{{ cond.symptoms|length - 6 }} more</span>
+                {% endif %}
+            </div>
+        </div>
+        {% if cond.risk_factors %}
+        <div class="card-risk">
+            <h4>Risk Factors:</h4>
+            <ul>
+                {% for rf in cond.risk_factors[:3] %}
+                <li>{{ rf }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% if cond.when_to_seek_care %}
+        <div class="card-seek-care">
+            <p><strong>Seek care:</strong> {{ cond.when_to_seek_care[:150] }}{{ '...' if cond.when_to_seek_care|length > 150 }}</p>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

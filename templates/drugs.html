@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Drug Interaction Checker{% endblock %}
+{% block content %}
+<section class="page-header">
+    <h1>Drug Interaction Checker</h1>
+    <p class="subtitle">Select two or more medications to check for potential interactions.</p>
+</section>
+
+<div class="alert alert-warning">
+    <strong>Disclaimer:</strong> This drug interaction checker is for educational purposes only.
+    Always consult your pharmacist or physician before combining medications.
+</div>
+
+<div class="drug-checker-layout">
+    <div class="panel drug-selector-panel">
+        <h2>Select Medications</h2>
+        <input type="text" id="drug-search" class="search-input" placeholder="Search medications...">
+        <div class="drug-list" id="drug-list">
+            {% for drug in drugs %}
+            <label class="drug-item" data-name="{{ drug.name|lower }}" data-id="{{ drug.id }}">
+                <input type="checkbox" class="drug-checkbox"
+                       value="{{ drug.id }}" data-drug-name="{{ drug.name }}">
+                <div class="drug-info">
+                    <span class="drug-name">{{ drug.name }}</span>
+                    <span class="drug-generic">{{ drug.generic_name }}</span>
+                    <span class="drug-class">{{ drug.drug_class }}</span>
+                </div>
+            </label>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel interaction-results-panel">
+        <h2>Selected Drugs</h2>
+        <div id="selected-drugs" class="selected-drugs-list">
+            <p class="empty-state">Select at least 2 medications to check interactions.</p>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg" id="check-interactions-btn" disabled>
+            Check Interactions
+        </button>
+
+        <div id="interaction-results" class="interaction-results" style="display:none;">
+            <h2>Interaction Results</h2>
+            <div id="interaction-list"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
