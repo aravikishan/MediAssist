@@ -14,6 +14,7 @@ from routes.api import api_bp
 from routes.views import views_bp
 
 
+# Updated for clarity
 def create_app(testing: bool = False) -> Flask:
     """Application factory for MediAssist."""
     app = Flask(__name__)
