@@ -39,7 +39,7 @@ def create_app(testing: bool = False) -> Flask:
     def inject_globals():
         return {
             "app_name": "MediAssist",
-            "app_version": "1.0.0",
+            "app_version": "1.0.1",
         }
 
     @app.errorhandler(404)
